@@ -1,0 +1,36 @@
+# Define the chatbot function
+def simple_chatbot(user_input):
+    # Convert user input to lowercase for case-insensitive matching
+    user_input = user_input.lower()
+
+    # Define the patterns and their corresponding responses
+    patterns = {
+        'hello': 'Hello! How can I help you?',
+        'hi': 'Hi there! How can I assist you?',
+        'how are you': 'I am just a bot, but thanks for asking!',
+        'bye': 'Goodbye! Have a great day!',
+        'ok': 'ok ok thank you',
+        
+    }
+
+    # Check if any pattern matches the user input
+    for pattern, response in patterns.items():
+        if pattern in user_input:
+            return response
+
+    # If no pattern matches, respond with a default message
+    return "I'm sorry, I didn't understand that. Can you please rephrase?"
+
+# Main loop to run the chatbot
+def main():
+    print("Chatbot: Hello! How can I assist you?")
+    while True:
+        user_input = input("You: ")
+        if user_input.lower() == 'exit':
+            print("Chatbot: Goodbye! Have a great day!")
+            break
+        response = simple_chatbot(user_input)
+        print("Chatbot:", response)
+
+if __name__ == "__main__":
+    main()
